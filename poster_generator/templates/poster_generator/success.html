@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html lang=" "en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .success-card{
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;            
+        }
+
+        .success-card h1 {
+            color: #3374ff;
+            font-weight: bold;
+        }
+
+        .success-card p {
+            font-size: 1.2rem;
+        }
+
+        .success-card a {
+            margin-top: 1rem;
+        }
+    </style>
+<head>    
+<body>
+    <div class="success-card">
+        <h1>Your Poster Segments Have Been Successfully Generated!</h1>
+
+        {% if zip_url %}
+            <p>Your poster segments are ready to download as a zip file.</p>
+            <a href="{{ zip_url }}" class="btn btn-primary btn-lg" download>Download Zip File</a>
+        {% else %}
+            <p class="text-danger">An error occurred generating the zip file. Please try again</p>
+        {%endif%}
+    </div>
+</body>
+</html>
+
+
+<!--<h1>Poster Successfully Generated</h1>
+<p>Your poster has been generated and saved at: {{segments_path}}</p>-->
+

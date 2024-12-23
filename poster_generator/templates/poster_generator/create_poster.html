@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang=" en">
+{% load custom_filters %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scaled=1.0">
+    <title>Poster Generator</title>
+    <!-- Including Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"> " 
+</head>
+<body>
+   <div class="container mt-5">
+      <h1 class="text-center mb-4">Create Your Poster</h1>  
+
+      <p class="text-center mb-5">
+      Upload your favorite picture or photo and create a poster here!<br>
+      This app will create a poster, and segment it into A4 size sheets that you can print at home.<br>
+      Choose the size you want below, click the Generate Poster button, and the poster segments <br>
+      will be generated and made available to download in a Zip folder.
+      </p>
+    
+      <form method="POST" enctype="multipart/form-data" class="p-4 border rounded shadow">
+          {% csrf_token %}
+
+        <!-- Image upload field -->
+          <div class="mb-3">
+             <label for="image" class="form-label">Upload Image:</label>
+             {{ form.image|add_class:"form-control" }}
+          </div>
+
+        <!-- Size Choice Field -->
+         <div class="mb-3">
+            <label for="size_choice" class="form-label">Poster Size:</label>
+            {{ form.size_choice|add_class:"form-select" }}
+         </div>
+
+        <!-- New dpi Field-->
+         <div class="mb-3">
+            <label for="dpi_new" class="form-label">DPI:</label>
+            {{ form.dpi_new|add_class:"form-control" }}
+         </div>
+
+         <!-- Submit Button -->
+         <div class="d-grid">
+            <button type="submit" class="btn btn-primary">Generate Poster</button>
+         </div>
+      </form>
+   </div>
+   <!-- Including Bootstrap JS-->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
